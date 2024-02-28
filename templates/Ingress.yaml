@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: friendly-app-ingress
+spec:
+  rules:
+  - host: friendly-app.domain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: friendly-app-service
+            port:
+              number: 80

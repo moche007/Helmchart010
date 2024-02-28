@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: friendly-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: friendly-app
+  template:
+    metadata:
+      labels:
+        app: friendly-app
+    spec:
+      containers:
+      - name: friendly-app
+        image: friendly-app:1.0.0
+        ports:
+        - containerPort: 80
+
+        volumeMounts:
+        - name: data-volume
+          mountPath: /data
+      volumes:
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: friendly-app-pvc

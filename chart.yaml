@@ -1,0 +1,7 @@
+apiVersion: v2
+name: friendly-app
+description: A Helm chart for Kubernetes to deploy version 1.0.0 of the friendly app
+type: application
+version: 1.0.0
+appVersion: 1.0.0
+
